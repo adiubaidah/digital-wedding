@@ -1,15 +1,47 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Nunito, Poppins, Noto_Serif } from "next/font/google";
 import "./globals.css";
+import Provider from "~/lib/provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const NotoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
+const Creattion = localFont({
+  src: "./font/Creattion.otf",
+  variable: "--font-creattion",
+});
+
+const HelloParis = localFont({
+  src: [
+    { path: "./font/HelloParis-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./font/HelloParis-Bold.ttf", weight: "700", style: "normal" },
+    {
+      path: "./font/HelloParis-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./font/HelloParis-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-hello-paris",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${nunito.variable} ${poppins.variable} ${HelloParis.variable} ${Creattion.variable} ${NotoSerif.variable} bg-[#BEBEBE] text-black`}
       >
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
