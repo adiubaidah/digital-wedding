@@ -23,12 +23,14 @@ interface ImageSliderProps {
   slidesPerView?: number;
   spaceBetween?: number;
   speed?: number;
+  priority?: boolean;
   className?: string;
   direction?: 'horizontal' | 'vertical';
 }
 
 function ImageSlider({
   images,
+  priority = false,
   fadeEffect = false,
   autoplay = true,
   loop = true,
@@ -73,10 +75,11 @@ function ImageSlider({
               <Image
                 src={image.src}
                 alt={image.alt}
+                loading={priority ? "eager" : "lazy"}
                 width={image.width || 1200}
                 height={image.height || 800}
                 className="object-cover w-full h-full"
-                priority={index === 0}
+                priority={priority}
               />
             </div>
           </SwiperSlide>

@@ -4,54 +4,59 @@ import React, { useRef } from "react";
 import ImageSlider from "~/components/custom/ImageSlider";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useInitialAlert } from "~/lib/initial-clicked";
 
 
 function Mates() {
+  const { isClicked, shouldShowAlert } = useInitialAlert();
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-        once: true
-      }
-    });
+    const shouldStartAnimation = !shouldShowAlert || isClicked;
+    
+    if (shouldStartAnimation) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 50%",
+          once: true
+        }
+      });
 
-    tl.fromTo(".line", {
-      strokeDasharray: 1920,
-      strokeDashoffset: 1920
-    }, {
-      strokeDashoffset: 0,
-      duration: 3,
-      ease: "power2.out"
-    });
+      tl.fromTo(".line", {
+        strokeDasharray: 1920,
+        strokeDashoffset: 1920
+      }, {
+        strokeDashoffset: 0,
+        duration: 3,
+        ease: "power2.out"
+      });
 
 
-    tl.fromTo(".heart--is-large", {
-      opacity: 0,
-      scale: 0.5,
-      transformOrigin: "25% 100%"
-    }, {
-      opacity: 0.5,
-      scale: 1,
-      duration: 1,
-      ease: "power2.out"
-    }, "+=0.33");
+      tl.fromTo(".heart--is-large", {
+        opacity: 0,
+        scale: 0.5,
+        transformOrigin: "25% 100%"
+      }, {
+        opacity: 0.5,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+      }, "+=0.33");
 
-    tl.fromTo(".heart--is-small", {
-      opacity: 0,
-      scale: 0.5,
-      transformOrigin: "4% 100%"
-    }, {
-      opacity: 0.5,
-      scale: 1,
-      duration: 0.75,
-      ease: "power2.out"
-    }, "+=0.33");
-
-  }, { scope: containerRef });
+      tl.fromTo(".heart--is-small", {
+        opacity: 0,
+        scale: 0.5,
+        transformOrigin: "4% 100%"
+      }, {
+        opacity: 0.5,
+        scale: 1,
+        duration: 0.75,
+        ease: "power2.out"
+      }, "+=0.33");
+    }
+  }, { scope: containerRef, dependencies: [shouldShowAlert, isClicked] });
 
   return (
     <div ref={containerRef} className="px-6 text-white mt-44">
@@ -60,15 +65,15 @@ function Mates() {
           className="h-[324px] w-[324px] z-10 absolute -top-[195px] rounded-[90px] overflow-hidden"
           images={[
             {
-              src: "/image.png",
-              width: 800,
-              height: 600,
+              src: "/image2.jpg",
+              width: 300,
+              height: 400,
               alt: "Description of image",
             },
             {
-              src: "/image2.png",
-              width: 800,
-              height: 600,
+              src: "/image3.jpg",
+              width: 300,
+              height: 400,
               alt: "Description of image",
             },
           ]}
@@ -131,17 +136,17 @@ function Mates() {
           className="h-[324px] w-[324px] z-10 absolute -bottom-[195px]  rounded-[90px] overflow-hidden"
           images={[
             {
-              src: "/image.png",
-              width: 800,
-              height: 600,
+              src: "/image3.jpg",
+              width: 300,
+              height: 400,
               alt: "Description of image",
             },
             {
-              src: "/image2.png",
-              width: 800,
-              height: 600,
-              alt: "Description of image",
-            },
+               src: "/image2.jpg",
+               width: 300,
+               height: 400,
+               alt: "Description of image",
+             },
           ]}
         />
       </div>
