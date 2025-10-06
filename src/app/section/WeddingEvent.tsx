@@ -81,7 +81,7 @@ function WeddingEvent() {
             ]}
           />
         </div>
-        <div ref={contentRef} className="flex h-[340px] bg-white">
+        <div ref={contentRef} className="flex h-[360px] bg-white">
           <div className="h-full text-[40px] bg-[#9E9E9E] flex items-center">
             <p className="-rotate-90 font-noto-serif">Resepsi</p>
           </div>
@@ -104,12 +104,12 @@ function WeddingEvent() {
               <p className="uppercase font-poppins text-[17px] font-bold mt-7">
                 Lokasi Acara
               </p>
-              <p className="font-poppins text-[15px]">
-                Ds. Petahunan RT : 03 : RW 01 Kec. Sumbersuko Kab. Lumajang
+              <p className="font-poppins text-[12px]">
+                Ds. Petahunan RT : 03 : RW 01, Area Pertenakan Fiqih etawa Petahunan Kec. Sumbersuko Kab. Lumajang
               </p>
 
               <Link
-                href="https://maps.app.goo.gl/PPNuXxiZ1tNU8E9S8"
+                href="https://maps.app.goo.gl/TaWDLnTCNhGLrVtQA?g_st=aw"
                 target="_blank"
                 className={cn(
                   buttonVariants({ size: "sm" }),

@@ -18,6 +18,7 @@ jobs:
       - name: Create .env file
         run: |
           echo "NEXT_PUBLIC_WEDDING_DAY=${{ vars.NEXT_PUBLIC_WEDDING_DAY }}" > .env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
 
       - name: Build Docker image
         run: |
@@ -46,4 +47,4 @@ jobs:
             docker load -i digital-wedding.tar
             docker stop digital-wedding || true
             docker rm digital-wedding || true
-            docker run -d --name digital-wedding -p 3005:3000 digital-wedding:latest
+            docker run -d --name digital-wedding --network digital-wedding-net -p 3005:3000 digital-wedding:latest

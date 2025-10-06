@@ -126,9 +126,9 @@ function Gift() {
         </p>
       </div>
       <div>
-        <div ref={cardsRef} className="flex gap-x-6 mt-10">
+        <div ref={cardsRef} className="space-y-6 mt-10">
           <div className="gift-card bg-white px-7 py-4 flex flex-col items-center justify-center shadow-lg">
-            <Image src={"/bsi.jpeg"} width={200} height={200} alt="BSI Logo" />
+            <Image src={"/bsi.jpeg"} width={200} height={200} alt="BSI Logo" className="h-[120px] w-auto"/>
             <div className="text-center">
               <p className="font-bold">No. Rekening</p>
               <p>7293683926</p>
@@ -150,8 +150,8 @@ function Gift() {
             </div>
           </div>
           <div className="gift-card bg-white px-7 py-4 flex flex-col items-center justify-center shadow-lg">
-            <Image src={"/ovo.png"} width={200} height={200} alt="OVO Logo" />
-            <div className="text-center">
+            <Image src={"/ovo.png"} width={200} height={200} alt="OVO Logo" className="h-[40px] w-auto" />
+            <div className="text-center mt-2">
               <p className="font-bold">No. Rekening</p>
               <p>087776723113</p>
               <p>a.n Akbar wahyu</p>
