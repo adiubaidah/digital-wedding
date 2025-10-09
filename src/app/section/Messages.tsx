@@ -180,7 +180,7 @@ function Messages() {
         <h1 className="text-4xl font-noto-serif">Do&apos;a & Ucapan</h1>
       </div>
 
-      <div className="space-y-4 bg-[#f5f3ee] mt-7 px-4 py-6 rounded-4xl h-[430px]">
+      <div className="space-y-4 bg-[#f5f3ee] mt-7 px-4 py-6 rounded-4xl h-[430px] overflow-y-scroll">
         {messages.map((message) => (
           <div
             key={message.id}

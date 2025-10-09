@@ -17,7 +17,7 @@ export default function Provider({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Toaster />
+      <Toaster richColors position="top-right" />
       {children}
     </QueryClientProvider>
   );
