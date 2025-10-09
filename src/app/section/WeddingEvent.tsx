@@ -89,7 +89,7 @@ function WeddingEvent() {
             <div className="flex gap-x-3 items-center justify-center mt-5">
               <span className="font-noto-serif font-bold text-6xl">12</span>
               <div className="font-nunito uppercase">
-                <p>Sabtu</p>
+                <p>Minggu</p>
                 <p>Oktober</p>
                 <p>2025</p>
               </div>
